@@ -1,28 +1,42 @@
 // Npm Packages
 
 var inquirer = require("inquirer");
-var Table = require('easy-table')
+var table = require('easy-table')
 var mysql = require("mysql");
 
 // Connection to mysl server
 var connection = mysql.createConnection({
     host:"localhost",
+    port: 3306,
     user:"root",
     password:"",
     database:"Bamazon_db"
 });
+// Connects to the mysql server and db.
+connection.connect(function(err) {
+    if (err) throw err;
 
-inquirer
+    // Then Calls the function to start the prompts
+    start();
+});
+
+// Prompts that ask the user
+function start() {
+    inquirer
 .prompt([
     {
-    type:"list",
+    name: "idSelection",
+    type:"input",
     message: "Select the ID of the product you are willing to purchase",
-    name: "idSelection"
 },{
-    type:"list",
+    name: "quantity",
+    type:"input",
     message: "How many would you like to purchase?",
-    name: "quantity"
 }
 ]).then(function(answers){
+connection.query("SELECT * FROM stock",function(err, results) {
 
-});
+
+
+
+})})};
