@@ -20,14 +20,16 @@ connection.connect(function(err) {
 	start();
 });
 
-// Prompts that ask the user
+// Prompts that ask the user.
 function start() {
-    // connection to query table
+    // connection to query table.
     	connection.query('SELECT * FROM stock', function(err, results) {
-				if (err) throw err;
+            if (err) throw err;
+// Asks the use what action they'd like to take.            
 	inquirer
 		.prompt([
 			{
+                // Retreives the list of items in the db through their id's and their name.
 				name: 'idSelection',
 				type: 'rawlist',
 				choices: function() {
@@ -44,7 +46,8 @@ function start() {
 				type: 'input',
 				message: 'How many would you like to purchase?'
 			}
-		])
+        ])
+        
 		.then(function(answer) {
             
             var selectedItem;
