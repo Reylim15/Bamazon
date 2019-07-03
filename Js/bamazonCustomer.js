@@ -49,7 +49,8 @@ function start() {
         ])
         
 		.then(function(answer) {
-            
+       
+            // This goes throught and finds what was the selectedItem.
             var selectedItem;
             for (var i = 0; i < results.length; i++) {
               if (results[i].product_name === answer.idSelection) {
@@ -57,19 +58,26 @@ function start() {
               }
             }
 
-            if(selectedItem.stock_quantity < parseInt(answer.quantity)) {
-                connection.query("UPDATE stock SET ? WHERE ?",
-                [{stock_quantity: answer.quantity}, {id: selectedItem.id}],
-                function(error) {
-                    if (error) throw err;
-                    console.log("Thank you for you purchase!");
-                    start();
-                })
-            }
+            // if(selectedItem.stock_quantity < parseInt(answer.quantity)) {
+            //     connection.query("UPDATE stock SET ? WHERE ?",
+            //     [{stock_quantity: answer.quantity}, {id: selectedItem.id}],
+            //     function(error) {
+            //         if (error) throw err;
+            //         console.log("Thank you for you purchase!");
+            //         start();
+            //     })
+            // }
 
-        else{
+        // else{
+
+        if(answer.quantity > selectedItem.stock_quantity) {
             console.log ("Sorry, We currently dont have enough stock to complete your order.");
             start();
+        } else if (answer.quantity < selectedItem.stock_quantity) {
+            console.log("The amount of product you currently have in your cart:" + answer.quantity);
+            var calculatedPrice = answer.quantity * selectedItem.price_for_customer
+            console.log("The total price:" + calculatedPrice);
+            console.log("The amount you have in youor cart of the current item:" + quantityPicked);
         }
 			});
 		});
