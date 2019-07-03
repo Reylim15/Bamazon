@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/Reylim15/Bamazon#readme",
   "dependencies": {
+    "easy-table": "^1.1.1",
     "mysql": "^2.17.1",
     "requirer": "0.0.4",
     "say": "^0.16.0"
