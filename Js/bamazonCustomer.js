@@ -33,7 +33,7 @@ function start() {
 				choices: function() {
 					var idSelectionArray = [];
 					for (var i = 0; i < results.length; i++) {
-						idSelection.push(results[i].product_name);
+						idSelectionArray.push(results[i].product_name);
 					}
 					return idSelectionArray;
 				},
