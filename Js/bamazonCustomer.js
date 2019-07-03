@@ -11,3 +11,18 @@ var connection = mysql.createConnection({
     password:"",
     database:"Bamazon_db"
 });
+
+inquirer
+.prompt([
+    {
+    type:"list",
+    message: "Select the ID of the product you are willing to purchase",
+    name: "idSelection"
+},{
+    type:"list",
+    message: "How many would you like to purchase?",
+    name: "quantity"
+}
+]).then(function(answers){
+
+});
