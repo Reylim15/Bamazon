@@ -10,11 +10,17 @@
     "type": "git",
     "url": "git+https://github.com/Reylim15/Bamazon.git"
   },
-  "keywords": ["Bamazon"],
+  "keywords": [
+    "Bamazon"
+  ],
   "author": "Rey_Daniel_Lim",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Reylim15/Bamazon/issues"
   },
-  "homepage": "https://github.com/Reylim15/Bamazon#readme"
+  "homepage": "https://github.com/Reylim15/Bamazon#readme",
+  "dependencies": {
+    "mysql": "^2.17.1",
+    "requirer": "0.0.4"
+  }
 }
