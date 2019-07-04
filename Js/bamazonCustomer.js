@@ -71,6 +71,7 @@ function start() {
 					// var newStockQuant =	selectedItem.stock_quantity - answer.quantity;
 					connection.query(
 						"UPDATE stock SET stock_quantity = stock_quantity - " + answer.quantity + "Where item_id = " + answer.item_id,
+						console.log("Null here.")
 						function(error) {
 							if (error) throw err;
 							console.log('Stock Update Completed Successfulyy!');
