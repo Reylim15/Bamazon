@@ -8,9 +8,9 @@ Bamazon is a program that gives the user the ability to buy from our inventory a
 
 #Technologies Used
 
-*Node.JS
-*Javascript
-*MySql
+-Node.JS
+-Javascript
+-MySql
 
 #Author
 Rey Lim
