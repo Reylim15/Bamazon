@@ -69,15 +69,34 @@ function start() {
             // }
 
         // else{
-
+// If contents are more than whats in stock then sale cannot be made.
         if(answer.quantity > selectedItem.stock_quantity) {
             console.log ("Sorry, We currently dont have enough stock to complete your order.");
-            start();
+						// loops back to start function
+						start();
+						
+						// If contents are less than stock then sale can be made.
         } else if (answer.quantity < selectedItem.stock_quantity) {
-            console.log("The amount of product you currently have in your cart:" + answer.quantity);
-            var calculatedPrice = answer.quantity * selectedItem.price_for_customer
-            console.log("The total price:" + calculatedPrice);
-            console.log("The amount you have in youor cart of the current item:" + quantityPicked);
+					// Prints out quantity in cart.
+						console.log("The amount of product you currently have in your cart: " + answer.quantity);
+						
+						
+				// This portion is still in the works but its used to update the current quantity of stock.	
+					// var newStockQuant =	selectedItem.stock_quantity - answer.quantity;
+					// 	connection.query("UPDATE stock SET ?",
+					// 	[
+					// 		{
+					// 			stock_quantity: newStockQuant
+					// 		},
+					// 	],
+					// 	)
+
+
+					// Prints the price.
+            var calculatedPrice = answer.quantity * selectedItem.price_for_customer;
+						console.log("The total price: $" + calculatedPrice);
+						// loops back to start
+						start();
         }
 			});
 		});
