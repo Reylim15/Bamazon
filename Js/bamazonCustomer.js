@@ -70,21 +70,12 @@ function start() {
 					// This portion is still in the works but its used to update the current quantity of stock.
 					// var newStockQuant =	selectedItem.stock_quantity - answer.quantity;
 					connection.query(
-						'UPDATE stock SET ? WHERE ?'[
-							({
-								stock_quantity: answer.quantity
-							},
-							{
-								id: selectedItem.id
-							})
-						],
+						"UPDATE stock SET stock_quantity = stock_quantity - " + answer.quantity + "Where item_id = " + answer.item_id,
 						function(error) {
 							if (error) throw err;
 							console.log('Stock Update Completed Successfulyy!');
-							start();
 						}
 					);
-
 					// Prints the price.
 					var calculatedPrice = answer.quantity * selectedItem.price_for_customer;
 					console.log('The total price: $' + calculatedPrice);
